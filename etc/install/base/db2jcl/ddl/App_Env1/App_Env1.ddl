@@ -1,8 +1,8 @@
 --------------------------------------
---Fetch DDL - DB:ADB171
+--Fetch DDL - DB:ADB181
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  CREATE DATABASE ADB171
+  CREATE DATABASE ADB181
     BUFFERPOOL BP0
     INDEXBP    BP0
     CCSID      EBCDIC
@@ -13,11 +13,11 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - TS:ADB171.ATS171
+--Fetch DDL - TS:ADB181.ATS181
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  CREATE TABLESPACE ATS171
-    IN ADB171
+  CREATE TABLESPACE ATS181
+    IN ADB181
     USING STOGROUP SYSDEFLT
     PRIQTY -1 SECQTY -1
     ERASE  NO
@@ -43,18 +43,18 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - TB:SC1171.ATB171
+--Fetch DDL - TB:SC1181.ATB181
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  SET CURRENT SCHEMA='SC1171';
-  CREATE TABLE ATB171
+  SET CURRENT SCHEMA='SC1181';
+  CREATE TABLE ATB181
      (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,
       COL2                 VARCHAR(36) FOR SBCS DATA
         WITH DEFAULT NULL,
       MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,
       COL3                 VARCHAR(36) FOR SBCS DATA
         WITH DEFAULT NULL)
-    IN ADB171.ATS171
+    IN ADB181.ATS181
     PARTITION BY SIZE
     AUDIT NONE
     DATA CAPTURE NONE
@@ -67,11 +67,11 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - IX:SC1171.AIX171
+--Fetch DDL - IX:SC1181.AIX181
 --------------------------------------
-  SET CURRENT SQLID='SC1171';
-  CREATE INDEX SC1171.AIX171
-    ON SC1171.ATB171
+  SET CURRENT SQLID='SC1181';
+  CREATE INDEX SC1181.AIX181
+    ON SC1181.ATB181
      (COL2                  ASC)
     NOT PADDED
     USING STOGROUP SYSDEFLT
@@ -94,10 +94,10 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - DB:ADB172
+--Fetch DDL - DB:ADB182
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  CREATE DATABASE ADB172
+  CREATE DATABASE ADB182
     BUFFERPOOL BP0
     INDEXBP    BP0
     CCSID      EBCDIC
@@ -108,11 +108,11 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - TS:ADB172.ATS172
+--Fetch DDL - TS:ADB182.ATS182
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  CREATE TABLESPACE ATS172
-    IN ADB172
+  CREATE TABLESPACE ATS182
+    IN ADB182
     USING STOGROUP SYSDEFLT
     PRIQTY -1 SECQTY -1
     ERASE  NO
@@ -138,18 +138,18 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - TB:SC1172.ATB172
+--Fetch DDL - TB:SC1182.ATB182
 --------------------------------------
   SET CURRENT SQLID='CSMVDQE';
-  SET CURRENT SCHEMA='SC1172';
-  CREATE TABLE ATB172
+  SET CURRENT SCHEMA='SC1182';
+  CREATE TABLE ATB182
      (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,
       COL2                 VARCHAR(36) FOR SBCS DATA
         WITH DEFAULT NULL,
       MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,
       COL3                 VARCHAR(36) FOR SBCS DATA
         WITH DEFAULT NULL)
-    IN ADB172.ATS172
+    IN ADB182.ATS182
     PARTITION BY SIZE
     AUDIT NONE
     DATA CAPTURE NONE
@@ -162,11 +162,11 @@
 --------------------------------------
 
 --------------------------------------
---Fetch DDL - IX:SC1172.AIX172
+--Fetch DDL - IX:SC1182.AIX182
 --------------------------------------
-  SET CURRENT SQLID='SC1172';
-  CREATE INDEX SC1172.AIX172
-    ON SC1172.ATB172
+  SET CURRENT SQLID='SC1182';
+  CREATE INDEX SC1182.AIX182
+    ON SC1182.ATB182
      (COL2                  ASC)
     NOT PADDED
     USING STOGROUP SYSDEFLT
