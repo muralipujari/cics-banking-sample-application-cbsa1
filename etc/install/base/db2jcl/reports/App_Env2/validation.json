@@ -1,0 +1,431 @@
+{
+  "totalNumberOfRulesEvaluated": 7,
+  "totalNumberOfWarnings": 7,
+  "totalNumberOfViolations": 0,
+  "totalNumberOfProcessingExceptions": 0,
+  "totalNumberOfSyntaxErrors": 0,
+  "db2ObjectDefinitions": [
+    {
+      "numberOfProcessingExceptions": 0,
+      "numberOfWarnings": 7,
+      "numberOfViolations": 0,
+      "numberOfSyntaxErrors": 0,
+      "numberOfRulesEvaluated": 7,
+      "objectDefinitionDetails": {
+        "name": "ACT",
+        "qualifier": "DSN8130A",
+        "type": "AL",
+        "version": null,
+        "specificName": null,
+        "subSystemID": "4c536cf6-470a-4dd9-a5f7-1cd12d6b9291",
+        "objectDefinition": "--------------------------------------\n--Fetch DDL - AL:DSN8130A.ACT\n--------------------------------------\n  SET CURRENT SQLID='TS4430';\n  SET CURRENT SCHEMA='DSN8130A';\n  CREATE ALIAS ACT FOR DSN8130.ACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - DB:IVPWOLPF\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE DATABASE IVPWOLPF\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13D\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13D\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE PAGE\n    LOCKMAX SYSTEM\n    CLOSE NO\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.DEPT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE DEPT\n     (DEPTNO               CHAR(3) FOR SBCS DATA NOT NULL,\n      DEPTNAME             VARCHAR(150) FOR SBCS DATA NOT NULL,\n      MGRNO                CHAR(6) FOR SBCS DATA WITH DEFAULT NULL,\n      ADMRDEPT             CHAR(3) FOR SBCS DATA NOT NULL,\n      LOCATION             CHAR(16) FOR SBCS DATA WITH DEFAULT NULL,\n      ADD_COL              SMALLINT NOT NULL WITH DEFAULT,\n      CONSTRAINT DEPTNO\n      PRIMARY KEY (DEPTNO))\n    IN IVPWOLPF.DSN8S13D\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.DEPT FOREIGN KEY RDD\n     (ADMRDEPT)\n    REFERENCES IVPNBIK.DEPT\n     (DEPTNO)\n    ON DELETE CASCADE ENFORCED ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.DEPT FOREIGN KEY RDE\n     (MGRNO)\n    REFERENCES IVPNBIK.EMP\n     (EMPNO)\n    ON DELETE SET NULL ENFORCED ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XDEPT1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XDEPT1\n    ON IVPNBIK.DEPT\n     (DEPTNO                ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XDEPT2\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE INDEX XDEPT2\n    ON IVPNBIK.DEPT\n     (MGRNO                 ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XDEPT3\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE INDEX XDEPT3\n    ON IVPNBIK.DEPT\n     (ADMRDEPT              ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13E\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13E\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    LOGGED\n    DSSIZE 4 G\n    NUMPARTS 5\n     (PART 3\n        COMPRESS NO)\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE PAGE\n    LOCKMAX SYSTEM\n    CLOSE NO\n    COMPRESS YES FIXEDLENGTH\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    PAGENUM ABSOLUTE\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.EMP\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE EMP\n     (EMPNO                CHAR(6) FOR SBCS DATA NOT NULL,\n      FIRSTNME             VARCHAR(12) FOR SBCS DATA NOT NULL,\n      MIDINIT              CHAR(1) FOR SBCS DATA NOT NULL,\n      LASTNAME             VARCHAR(15) FOR SBCS DATA NOT NULL,\n      WORKDEPT             CHAR(3) FOR SBCS DATA WITH DEFAULT NULL,\n      PHONENO              CHAR(4) FOR SBCS DATA WITH DEFAULT NULL,\n      HIREDATE             DATE WITH DEFAULT NULL,\n      JOB                  CHAR(8) FOR SBCS DATA WITH DEFAULT NULL,\n      EDLEVEL              SMALLINT WITH DEFAULT NULL,\n      SEX                  CHAR(1) FOR SBCS DATA WITH DEFAULT NULL,\n      BIRTHDATE            DATE WITH DEFAULT NULL,\n      SALARY               DECIMAL(9, 2) WITH DEFAULT NULL,\n      BONUS                DECIMAL(9, 2) WITH DEFAULT NULL,\n      COMM                 DECIMAL(9, 2) WITH DEFAULT NULL,\n      CONSTRAINT EMPNO\n      PRIMARY KEY (EMPNO),\n      CONSTRAINT NUMBER\n        CHECK (PHONENO >= '0000' AND PHONENO <= '9999' ),\n      CONSTRAINT PERSON CHECK (SEX = 'M' OR SEX = 'F' ))\n    IN IVPWOLPF.DSN8S13E\n    PARTITION BY (EMPNO ASC)\n     (PARTITION 1 ENDING AT ('099999'),\n      PARTITION 2 ENDING AT ('199999'),\n      PARTITION 3 ENDING AT ('299999'),\n      PARTITION 4 ENDING AT ('499999'),\n      PARTITION 5 ENDING AT ('999999'))\n    EDITPROC  DSN8EAE1 WITH ROW ATTRIBUTES\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.EMP FOREIGN KEY RED\n     (WORKDEPT)\n    REFERENCES IVPNBIK.DEPT\n     (DEPTNO)\n    ON DELETE SET NULL ENFORCED ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XEMP1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XEMP1\n    ON IVPNBIK.EMP\n     (EMPNO                 ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XEMP2\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE INDEX XEMP2\n    ON IVPNBIK.EMP\n     (WORKDEPT              ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13M\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13M\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 4\n    BUFFERPOOL BP0\n    LOCKSIZE ROW\n    LOCKMAX 0\n    CLOSE NO\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.PROJ\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE PROJ\n     (PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      PROJNAME             VARCHAR(24) FOR SBCS DATA NOT NULL\n        WITH DEFAULT 'PROJECT NAME UNDEFINED',\n      DEPTNO               CHAR(3) FOR SBCS DATA NOT NULL,\n      RESPEMP              CHAR(6) FOR SBCS DATA NOT NULL,\n      PRSTAFF              DECIMAL(5, 2) WITH DEFAULT NULL,\n      PRSTDATE             DATE WITH DEFAULT NULL,\n      PRENDATE             DATE WITH DEFAULT NULL,\n      MAJPROJ              CHAR(6) FOR SBCS DATA WITH DEFAULT NULL,\n      ADD_COL              SMALLINT WITH DEFAULT NULL,\n      CONSTRAINT PROJNO\n      PRIMARY KEY (PROJNO))\n    IN IVPWOLPF.DSN8S13M\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.PROJ FOREIGN KEY DEPTNO\n     (DEPTNO)\n    REFERENCES IVPNBIK.DEPT\n     (DEPTNO)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.PROJ FOREIGN KEY RESPEMP\n     (RESPEMP)\n    REFERENCES IVPNBIK.EMP\n     (EMPNO)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.PROJ FOREIGN KEY RPP\n     (MAJPROJ)\n    REFERENCES IVPNBIK.PROJ\n     (PROJNO)\n    ON DELETE CASCADE ENFORCED ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XPROJ1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XPROJ1\n    ON IVPNBIK.PROJ\n     (PROJNO                ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XPROJ2\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE INDEX XPROJ2\n    ON IVPNBIK.PROJ\n     (RESPEMP               ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13N\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13N\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 4\n    BUFFERPOOL BP0\n    LOCKSIZE ROW\n    LOCKMAX 0\n    CLOSE NO\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.ACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE ACT\n     (ACTNO                SMALLINT NOT NULL,\n      ACTKWD               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTDESC              VARCHAR(20) FOR SBCS DATA NOT NULL,\n      CONSTRAINT ACTNO\n      PRIMARY KEY (ACTNO))\n    IN IVPWOLPF.DSN8S13N\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XACT1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XACT1\n    ON IVPNBIK.ACT\n     (ACTNO                 ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XACT2\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XACT2\n    ON IVPNBIK.ACT\n     (ACTKWD                ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13O\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13O\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 4\n    BUFFERPOOL BP0\n    LOCKSIZE ROW\n    LOCKMAX 0\n    CLOSE NO\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.PROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE PROJACT\n     (PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTNO                SMALLINT NOT NULL,\n      ACSTAFF              DECIMAL(5, 2) WITH DEFAULT NULL,\n      ACSTDATE             DATE NOT NULL,\n      ACENDATE             DATE WITH DEFAULT NULL,\n      CONSTRAINT PROJNO\n      PRIMARY KEY (PROJNO,\n                   ACTNO,\n                   ACSTDATE))\n    IN IVPWOLPF.DSN8S13O\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.PROJACT FOREIGN KEY RPAA\n     (ACTNO)\n    REFERENCES IVPNBIK.ACT\n     (ACTNO)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.PROJACT FOREIGN KEY RPAP\n     (PROJNO)\n    REFERENCES IVPNBIK.PROJ\n     (PROJNO)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XPROJAC1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XPROJAC1\n    ON IVPNBIK.PROJACT\n     (PROJNO                ASC,\n      ACTNO                 ASC,\n      ACSTDATE              ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:IVPWOLPF.DSN8S13P\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  CREATE TABLESPACE DSN8S13P\n    IN IVPWOLPF\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 4\n    BUFFERPOOL BP0\n    LOCKSIZE ROW\n    LOCKMAX 0\n    CLOSE NO\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:IVPNBIK.EMPPROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE TABLE EMPPROJACT\n     (EMPNO                CHAR(6) FOR SBCS DATA NOT NULL,\n      PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTNO                SMALLINT NOT NULL,\n      EMPTIME              DECIMAL(5, 2) WITH DEFAULT NULL,\n      EMSTDATE             DATE WITH DEFAULT NULL,\n      EMENDATE             DATE WITH DEFAULT NULL)\n    IN IVPWOLPF.DSN8S13P\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.EMPPROJACT FOREIGN KEY REPAE\n     (EMPNO)\n    REFERENCES IVPNBIK.EMP\n     (EMPNO)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n  ALTER TABLE IVPNBIK.EMPPROJACT FOREIGN KEY REPAPA\n     (PROJNO,\n      ACTNO,\n      EMSTDATE)\n    REFERENCES IVPNBIK.PROJACT\n     (PROJNO,\n      ACTNO,\n      ACSTDATE)\n    ON DELETE RESTRICT ENFORCED ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XEMPPROJACT1\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE UNIQUE INDEX XEMPPROJACT1\n    ON IVPNBIK.EMPPROJACT\n     (PROJNO                ASC,\n      ACTNO                 ASC,\n      EMSTDATE              ASC,\n      EMPNO                 ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:IVPNBIK.XEMPPROJACT2\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPNBIK';\n  CREATE INDEX XEMPPROJACT2\n    ON IVPNBIK.EMPPROJACT\n     (EMPNO                 ASC)\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE NO\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.ACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS ACT FOR IVPNBIK.ACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.DEPT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS DEPT FOR IVPNBIK.DEPT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.EMP\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS EMP FOR IVPNBIK.EMP ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.EMPPROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS EMPPROJACT FOR IVPNBIK.EMPPROJACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.PROJ\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS PROJ FOR IVPNBIK.PROJ ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPPBU.PROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPPBU';\n  CREATE ALIAS PROJACT FOR IVPNBIK.PROJACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.ACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS ACT FOR IVPNBIK.ACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.DEPT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS DEPT FOR IVPNBIK.DEPT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.EMP\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS EMP FOR IVPNBIK.EMP ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.EMPPROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS EMPPROJACT FOR IVPNBIK.EMPPROJACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.PROJ\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS PROJ FOR IVPNBIK.PROJ ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - AL:IVPVD.PROJACT\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQO';\n  SET CURRENT SCHEMA='IVPVD';\n  CREATE ALIAS PROJACT FOR IVPNBIK.PROJACT ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n",
+        "dbName": null,
+        "tsName": null
+      },
+      "siteRuleResults": [
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:34:33.019Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:42.562Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "4787f337-0c63-4185-8f16-67e21e6f0cdb",
+            "name": "Rule2",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "database",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ACD",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "IVPWOLPF",
+              "startLine": 16,
+              "endLine": 16,
+              "startChar": 18,
+              "endChar": 26
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE DATABASE IVPWOLPF\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT",
+            "startLine": 16,
+            "endLine": 20,
+            "startChar": 2,
+            "endChar": 23
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "DEPT",
+              "startLine": 61,
+              "endLine": 61,
+              "startChar": 15,
+              "endChar": 19
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE DEPT\n     (DEPTNO               CHAR(3) FOR SBCS DATA NOT NULL,\n      DEPTNAME             VARCHAR(150) FOR SBCS DATA NOT NULL,\n      MGRNO                CHAR(6) FOR SBCS DATA WITH DEFAULT NULL,\n      ADMRDEPT             CHAR(3) FOR SBCS DATA NOT NULL,\n      LOCATION             CHAR(16) FOR SBCS DATA WITH DEFAULT NULL,\n      ADD_COL              SMALLINT NOT NULL WITH DEFAULT,\n      CONSTRAINT DEPTNO\n      PRIMARY KEY (DEPTNO))\n    IN IVPWOLPF.DSN8S13D\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 61,
+            "endLine": 76,
+            "startChar": 2,
+            "endChar": 13
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "EMP",
+              "startLine": 213,
+              "endLine": 213,
+              "startChar": 15,
+              "endChar": 18
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE EMP\n     (EMPNO                CHAR(6) FOR SBCS DATA NOT NULL,\n      FIRSTNME             VARCHAR(12) FOR SBCS DATA NOT NULL,\n      MIDINIT              CHAR(1) FOR SBCS DATA NOT NULL,\n      LASTNAME             VARCHAR(15) FOR SBCS DATA NOT NULL,\n      WORKDEPT             CHAR(3) FOR SBCS DATA WITH DEFAULT NULL,\n      PHONENO              CHAR(4) FOR SBCS DATA WITH DEFAULT NULL,\n      HIREDATE             DATE WITH DEFAULT NULL,\n      JOB                  CHAR(8) FOR SBCS DATA WITH DEFAULT NULL,\n      EDLEVEL              SMALLINT WITH DEFAULT NULL,\n      SEX                  CHAR(1) FOR SBCS DATA WITH DEFAULT NULL,\n      BIRTHDATE            DATE WITH DEFAULT NULL,\n      SALARY               DECIMAL(9, 2) WITH DEFAULT NULL,\n      BONUS                DECIMAL(9, 2) WITH DEFAULT NULL,\n      COMM                 DECIMAL(9, 2) WITH DEFAULT NULL,\n      CONSTRAINT EMPNO\n      PRIMARY KEY (EMPNO),\n      CONSTRAINT NUMBER\n        CHECK (PHONENO >= '0000' AND PHONENO <= '9999' ),\n      CONSTRAINT PERSON CHECK (SEX = 'M' OR SEX = 'F' ))\n    IN IVPWOLPF.DSN8S13E\n    PARTITION BY (EMPNO ASC)\n     (PARTITION 1 ENDING AT ('099999'),\n      PARTITION 2 ENDING AT ('199999'),\n      PARTITION 3 ENDING AT ('299999'),\n      PARTITION 4 ENDING AT ('499999'),\n      PARTITION 5 ENDING AT ('999999'))\n    EDITPROC  DSN8EAE1 WITH ROW ATTRIBUTES\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 213,
+            "endLine": 245,
+            "startChar": 2,
+            "endChar": 13
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "PROJ",
+              "startLine": 346,
+              "endLine": 346,
+              "startChar": 15,
+              "endChar": 19
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE PROJ\n     (PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      PROJNAME             VARCHAR(24) FOR SBCS DATA NOT NULL\n        WITH DEFAULT 'PROJECT NAME UNDEFINED',\n      DEPTNO               CHAR(3) FOR SBCS DATA NOT NULL,\n      RESPEMP              CHAR(6) FOR SBCS DATA NOT NULL,\n      PRSTAFF              DECIMAL(5, 2) WITH DEFAULT NULL,\n      PRSTDATE             DATE WITH DEFAULT NULL,\n      PRENDATE             DATE WITH DEFAULT NULL,\n      MAJPROJ              CHAR(6) FOR SBCS DATA WITH DEFAULT NULL,\n      ADD_COL              SMALLINT WITH DEFAULT NULL,\n      CONSTRAINT PROJNO\n      PRIMARY KEY (PROJNO))\n    IN IVPWOLPF.DSN8S13M\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 346,
+            "endLine": 365,
+            "startChar": 2,
+            "endChar": 13
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "ACT",
+              "startLine": 478,
+              "endLine": 478,
+              "startChar": 15,
+              "endChar": 18
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE ACT\n     (ACTNO                SMALLINT NOT NULL,\n      ACTKWD               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTDESC              VARCHAR(20) FOR SBCS DATA NOT NULL,\n      CONSTRAINT ACTNO\n      PRIMARY KEY (ACTNO))\n    IN IVPWOLPF.DSN8S13N\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 478,
+            "endLine": 490,
+            "startChar": 2,
+            "endChar": 13
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "PROJACT",
+              "startLine": 585,
+              "endLine": 585,
+              "startChar": 15,
+              "endChar": 22
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE PROJACT\n     (PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTNO                SMALLINT NOT NULL,\n      ACSTAFF              DECIMAL(5, 2) WITH DEFAULT NULL,\n      ACSTDATE             DATE NOT NULL,\n      ACENDATE             DATE WITH DEFAULT NULL,\n      CONSTRAINT PROJNO\n      PRIMARY KEY (PROJNO,\n                   ACTNO,\n                   ACSTDATE))\n    IN IVPWOLPF.DSN8S13O\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 585,
+            "endLine": 601,
+            "startChar": 2,
+            "endChar": 13
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:30:08.962Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:24.547Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "1cdeeb16-90a9-4eb1-82ed-1d7319ae15a1",
+            "name": "Rule1",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "table",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ATB",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "EMPPROJACT",
+              "startLine": 683,
+              "endLine": 683,
+              "startChar": 15,
+              "endChar": 25
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE TABLE EMPPROJACT\n     (EMPNO                CHAR(6) FOR SBCS DATA NOT NULL,\n      PROJNO               CHAR(6) FOR SBCS DATA NOT NULL,\n      ACTNO                SMALLINT NOT NULL,\n      EMPTIME              DECIMAL(5, 2) WITH DEFAULT NULL,\n      EMSTDATE             DATE WITH DEFAULT NULL,\n      EMENDATE             DATE WITH DEFAULT NULL)\n    IN IVPWOLPF.DSN8S13P\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO",
+            "startLine": 683,
+            "endLine": 696,
+            "startChar": 2,
+            "endChar": 13
+          }
+        }
+      ],
+      "syntaxErrors": null,
+      "originType": "EXISTING"
+    }
+  ],
+  "imsObjectDefinitions": null
+}
