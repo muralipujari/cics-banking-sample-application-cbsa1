@@ -1,0 +1,11 @@
+{
+  "returncode": "OK",
+  "messages": [],
+  "message": "The impact report job is successfully submitted.",
+  "detailedMessages": [],
+  "data": {
+    "appName": "App_Env1",
+    "appId": "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+    "impactReportId": "J0908781"
+  }
+}
