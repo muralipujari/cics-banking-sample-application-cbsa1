@@ -1,0 +1,206 @@
+{
+  "returncode": "OK",
+  "messages": [],
+  "message": "Successfully fetched impact report summary.",
+  "detailedMessages": [],
+  "data": {
+    "appName": "App_Env1",
+    "appId": "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+    "impactReportId": "J0925411",
+    "impactReport": {
+      "jobName": "NWTWEGFV",
+      "rc": "4",
+      "jobId": "J0925411",
+      "reports": {
+        "summaryJSON": {
+          "Title": "COMPARISON SUMMARY REPORT",
+          "Headings": [
+            "Obtyp",
+            "Source Object",
+            "Target Object",
+            "Result",
+            "Object type"
+          ],
+          "Results": [
+            {
+              "index": 0,
+              "familyIndex": 1,
+              "parentIndex": -1,
+              "Obtyp": "D",
+              "Source Object": "ADB175",
+              "Target Object": "",
+              "Result": "Added",
+              "Object type": "Database",
+              "Children": [
+                {
+                  "index": 1,
+                  "familyIndex": 2,
+                  "parentIndex": 0,
+                  "Obtyp": "S",
+                  "Source Object": "ADB175.ATS175",
+                  "Target Object": "",
+                  "Result": "Added",
+                  "Object type": "Tablespace",
+                  "Children": [
+                    {
+                      "index": 2,
+                      "familyIndex": 3,
+                      "parentIndex": 1,
+                      "Obtyp": "T",
+                      "Source Object": "SC1175.ATB175",
+                      "Target Object": "",
+                      "Result": "Added",
+                      "Object type": "Table",
+                      "Children": [
+                        {
+                          "index": 3,
+                          "familyIndex": 4,
+                          "parentIndex": 2,
+                          "Obtyp": "X",
+                          "Source Object": "SC1175.AIX175",
+                          "Target Object": "",
+                          "Result": "Added",
+                          "Object type": "Index",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 4,
+              "familyIndex": 1,
+              "parentIndex": -1,
+              "Obtyp": "D",
+              "Source Object": "ADB181",
+              "Target Object": "ADB181",
+              "Result": "No change",
+              "Object type": "Database",
+              "Children": [
+                {
+                  "index": 5,
+                  "familyIndex": 2,
+                  "parentIndex": 4,
+                  "Obtyp": "S",
+                  "Source Object": "ADB181.ATS181",
+                  "Target Object": "ADB181.ATS181",
+                  "Result": "No change",
+                  "Object type": "Tablespace",
+                  "Children": [
+                    {
+                      "index": 6,
+                      "familyIndex": 3,
+                      "parentIndex": 5,
+                      "Obtyp": "T",
+                      "Source Object": "SC1181.ATB181",
+                      "Target Object": "SC1181.ATB181",
+                      "Result": "No change",
+                      "Object type": "Table",
+                      "Children": [
+                        {
+                          "index": 7,
+                          "familyIndex": 4,
+                          "parentIndex": 6,
+                          "Obtyp": "X",
+                          "Source Object": "SC1181.AIX181",
+                          "Target Object": "SC1181.AIX181",
+                          "Result": "No change",
+                          "Object type": "Index",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 8,
+              "familyIndex": 1,
+              "parentIndex": -1,
+              "Obtyp": "D",
+              "Source Object": "ADB182",
+              "Target Object": "ADB182",
+              "Result": "No change",
+              "Object type": "Database",
+              "Children": [
+                {
+                  "index": 9,
+                  "familyIndex": 2,
+                  "parentIndex": 8,
+                  "Obtyp": "S",
+                  "Source Object": "ADB182.ATS182",
+                  "Target Object": "ADB182.ATS182",
+                  "Result": "No change",
+                  "Object type": "Tablespace",
+                  "Children": [
+                    {
+                      "index": 10,
+                      "familyIndex": 3,
+                      "parentIndex": 9,
+                      "Obtyp": "T",
+                      "Source Object": "SC1182.ATB182",
+                      "Target Object": "SC1182.ATB182",
+                      "Result": "No change",
+                      "Object type": "Table",
+                      "Children": [
+                        {
+                          "index": 11,
+                          "familyIndex": 4,
+                          "parentIndex": 10,
+                          "Obtyp": "X",
+                          "Source Object": "SC1182.AIX182",
+                          "Target Object": "SC1182.AIX182",
+                          "Result": "No change",
+                          "Object type": "Index",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "summaryText": [
+          " COMPARISON SUMMARY REPORT",
+          " =========================",
+          "",
+          " Obtyp Source Object                    Target Object                    Result               Object type",
+          " ----- -------------------------------  -------------------------------  -------------------- ---------------",
+          " D     ADB175                                                            Added                Database",
+          "  S     ADB175.ATS175                                                    Added                Tablespace",
+          "   T     SC1175.ATB175                                                   Added                Table",
+          "    X     SC1175.AIX175                                                  Added                Index",
+          " D     ADB181                           ADB181                           No change            Database",
+          "  S     ADB181.ATS181                    ADB181.ATS181                   No change            Tablespace",
+          "   T     SC1181.ATB181                    SC1181.ATB181                  No change            Table",
+          "    X     SC1181.AIX181                    SC1181.AIX181                 No change            Index",
+          " D     ADB182                           ADB182                           No change            Database",
+          "  S     ADB182.ATS182                    ADB182.ATS182                   No change            Tablespace",
+          "   T     SC1182.ATB182                    SC1182.ATB182                  No change            Table",
+          "    X     SC1182.AIX182                    SC1182.AIX182                 No change            Index",
+          " ----- -------------------------------  -------------------------------  -------------------- ---------------"
+        ],
+        "objectCountText": [
+          " COMPARISON COUNTS REPORT",
+          " =========================",
+          "",
+          " Object type      On source  On target  Compared   Added      Kept       Altered    Not added  Recreated",
+          " ---------------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------",
+          " Databases                 3          2          2          1          0          0          0          0",
+          " Tablespaces               3          2          2          1          0          0          0          0",
+          " Tables                    3          2          2          1          0          0          0          0",
+          " Indexes                   3          2          2          1          0          0          0          0",
+          " ---------------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------",
+          "",
+          " GOC2CMP - Ended normally"
+        ]
+      },
+      "complete": true
+    }
+  }
+}
