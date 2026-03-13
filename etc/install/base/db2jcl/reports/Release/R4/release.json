@@ -1,0 +1,25 @@
+{
+  "returncode": "CREATED",
+  "messages": [],
+  "message": "SUCCESS",
+  "detailedMessages": null,
+  "data": {
+    "createdTS": "2026-03-13-04.12.26.375221-04:00",
+    "createdBy": "CSMVDQE",
+    "createdInRelease": "1.1.0.2",
+    "updatedTS": "2026-03-13-04.12.26.375221-04:00",
+    "updatedBy": null,
+    "updatedInRelease": null,
+    "releaseUUID": "9b43c0b2-2b62-4524-90bd-8040f8c2d27a",
+    "releaseName": "R4",
+    "releaseStatus": "A",
+    "releaseType": "E",
+    "releaseDesc": "No description provided",
+    "consolidatedReleaseUUID": null,
+    "manifestUUID": "08039949-d22a-42d8-8c72-3f25b8a8f622",
+    "manifestName": "Manifest1",
+    "pathUUID": "ed8c48d6-9231-49e7-8912-b7c18678716a",
+    "pathName": "R4_P_2026-03-13T04:12:26.361-04:00",
+    "initiatingEnvUUID": null
+  }
+}
