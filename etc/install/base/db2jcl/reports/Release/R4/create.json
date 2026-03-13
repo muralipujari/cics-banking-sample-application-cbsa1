@@ -1,0 +1,29 @@
+{
+  "returncode": "OK",
+  "messages": [],
+  "message": "SUCCESS",
+  "detailedMessages": [],
+  "data": {
+    "uniqueId": "5fb43501-16b9-426e-a9c3-445caf8b556f",
+    "status": "IN_PROGRESS",
+    "promotionPlanList": [],
+    "sourceOutOfBandChangeList": null,
+    "targetOutOfBandChangeList": [],
+    "sourcePendingChangeList": null,
+    "targetPendingChangeList": null,
+    "sourceAndTargetEnvironmentDetails": {
+      "targetEnvironmentsList": [
+        {
+          "envUUID": "41ac2fc7-e8d0-44fe-9ea9-6ad732603c1f",
+          "envName": "Env2",
+          "landscapeUUID": "de98c977-e8ab-40d2-af15-4501fb968f4e",
+          "landscapeName": "Dev",
+          "targetType": "EXTERNAL_REPO_TARGET"
+        }
+      ],
+      "sourceExternalRepo": {
+        "externalRepoName": "Repo4"
+      }
+    }
+  }
+}
