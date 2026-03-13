@@ -1,16 +1,16 @@
 {
-  "totalNumberOfRulesEvaluated": 4,
-  "totalNumberOfWarnings": 2,
+  "totalNumberOfRulesEvaluated": 6,
+  "totalNumberOfWarnings": 3,
   "totalNumberOfViolations": 0,
   "totalNumberOfProcessingExceptions": 0,
   "totalNumberOfSyntaxErrors": 0,
   "db2ObjectDefinitions": [
     {
       "numberOfProcessingExceptions": 0,
-      "numberOfWarnings": 2,
+      "numberOfWarnings": 3,
       "numberOfViolations": 0,
       "numberOfSyntaxErrors": 0,
-      "numberOfRulesEvaluated": 4,
+      "numberOfRulesEvaluated": 6,
       "objectDefinitionDetails": {
         "name": "ATS181",
         "qualifier": "ADB181",
@@ -18,7 +18,7 @@
         "version": null,
         "specificName": null,
         "subSystemID": "4c536cf6-470a-4dd9-a5f7-1cd12d6b9291",
-        "objectDefinition": "--------------------------------------\n--Fetch DDL - DB:ADB181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE DATABASE ADB181\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:ADB181.ATS181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE TABLESPACE ATS181\n    IN ADB181\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE ANY\n    LOCKMAX SYSTEM\n    CLOSE YES\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:SC1181.ATB181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  SET CURRENT SCHEMA='SC1181';\n  CREATE TABLE ATB181\n     (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,\n      COL2                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL,\n      MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,\n      COL3                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL)\n    IN ADB181.ATS181\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:SC1181.AIX181\n--------------------------------------\n  SET CURRENT SQLID='SC1181';\n  CREATE INDEX SC1181.AIX181\n    ON SC1181.ATB181\n     (COL2                  ASC)\n    NOT PADDED\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE YES\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - DB:ADB182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE DATABASE ADB182\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:ADB182.ATS182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE TABLESPACE ATS182\n    IN ADB182\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE ANY\n    LOCKMAX SYSTEM\n    CLOSE YES\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:SC1182.ATB182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  SET CURRENT SCHEMA='SC1182';\n  CREATE TABLE ATB182\n     (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,\n      COL2                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL,\n      MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,\n      COL3                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL)\n    IN ADB182.ATS182\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:SC1182.AIX182\n--------------------------------------\n  SET CURRENT SQLID='SC1182';\n  CREATE INDEX SC1182.AIX182\n    ON SC1182.ATB182\n     (COL2                  ASC)\n    NOT PADDED\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE YES\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n",
+        "objectDefinition": "--------------------------------------\n--Fetch DDL - DB:ADB181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE DATABASE ADB181\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:ADB181.ATS181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE TABLESPACE ATS181\n    IN ADB181\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE ANY\n    LOCKMAX SYSTEM\n    CLOSE YES\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:SC1181.ATB181\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  SET CURRENT SCHEMA='SC1181';\n  CREATE TABLE ATB181\n     (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,\n      COL2                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL,\n      MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,\n      COL3                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL)\n    IN ADB181.ATS181\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:SC1181.AIX181\n--------------------------------------\n  SET CURRENT SQLID='SC1181';\n  CREATE INDEX SC1181.AIX181\n    ON SC1181.ATB181\n     (COL2                  ASC)\n    NOT PADDED\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE YES\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - DB:ADB182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE DATABASE ADB182\n    BUFFERPOOL BP0\n    INDEXBP    BP0\n    CCSID      EBCDIC\n    STOGROUP   SYSDEFLT;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TS:ADB182.ATS182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  CREATE TABLESPACE ATS182\n    IN ADB182\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 5 FOR UPDATE 0\n    GBPCACHE CHANGED\n    TRACKMOD YES\n    MAXPARTITIONS 254\n    LOGGED\n    DSSIZE 4 G\n    SEGSIZE 32\n    BUFFERPOOL BP0\n    LOCKSIZE ANY\n    LOCKMAX SYSTEM\n    CLOSE YES\n    COMPRESS NO\n    CCSID      EBCDIC\n    DEFINE YES\n    MAXROWS 255\n    INSERT ALGORITHM 0;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - TB:SC1182.ATB182\n--------------------------------------\n  SET CURRENT SQLID='CSMVDQE';\n  SET CURRENT SCHEMA='SC1182';\n  CREATE TABLE ATB182\n     (COL1                 CHAR(2) FOR SBCS DATA WITH DEFAULT NULL,\n      COL2                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL,\n      MASK_COLUMN          DECIMAL(11, 0) WITH DEFAULT NULL,\n      COL3                 VARCHAR(36) FOR SBCS DATA\n        WITH DEFAULT NULL)\n    IN ADB182.ATS182\n    PARTITION BY SIZE\n    AUDIT NONE\n    DATA CAPTURE NONE\n    CCSID      EBCDIC\n    NOT VOLATILE\n    APPEND NO  ;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\n\n--------------------------------------\n--Fetch DDL - IX:SC1182.AIX182\n--------------------------------------\n  SET CURRENT SQLID='SC1182';\n  CREATE INDEX SC1182.AIX182\n    ON SC1182.ATB182\n     (COL2                  ASC)\n    NOT PADDED\n    USING STOGROUP SYSDEFLT\n    PRIQTY -1 SECQTY -1\n    ERASE  NO\n    FREEPAGE 0 PCTFREE 10\n    GBPCACHE CHANGED\n    NOT CLUSTER\n    COMPRESS NO\n    INCLUDE NULL KEYS\n    BUFFERPOOL BP0\n    CLOSE YES\n    COPY NO\n    DEFER NO\n    DEFINE YES\n    PIECESIZE 4 G;\n  COMMIT;\n--------------------------------------\n--End of fetched DDL\n--------------------------------------\nSET CURRENT SCHEMA = 'SC1175';\nSET CURRENT SQLID='CSMVDQE';\nSET CURRENT PATH = \"SYSIBM\",\"SYSFUN\",\"SYSPROC\",\"SYSIBMADM\",\"CSMVDQE\" ;\nCREATE DATABASE ADB175;\nCREATE TABLESPACE ATS175 IN ADB175;\nCREATE TABLE ATB175 (COL1 CHAR(2),\n    COL2 VARCHAR(36), MASK_COLUMN DEC(11))\n    IN ADB175.ATS175;\nCOMMIT;\nINSERT INTO ATB175 VALUES('A', 'B', 1);\nCOMMIT;\nALTER TABLE ATB175 ADD COL3 VARCHAR(36);\nCOMMIT;\n\n\nCREATE INDEX SC1175.AIX175\n    ON SC1175.ATB175\n (COL2                 ASC);\nCOMMIT;\n\n",
         "dbName": null,
         "tsName": null
       },
@@ -135,6 +135,63 @@
             "endLine": 104,
             "startChar": 2,
             "endChar": 23
+          }
+        },
+        {
+          "siteRuleEvaluationSeverity": "WARNING",
+          "siteRuleEvaluationExceptions": null,
+          "rule": {
+            "createdDate": "2026-03-09T08:34:33.019Z",
+            "createdBy": "CSMVDQE",
+            "createdInRelease": "1.2.0.15",
+            "updatedDate": "2026-03-12T06:59:42.562Z",
+            "updatedBy": "CSMVDQE",
+            "updatedInRelease": "1.2.0.15",
+            "id": "4787f337-0c63-4185-8f16-67e21e6f0cdb",
+            "name": "Rule2",
+            "environments": [
+              "f75ab32d-e8f0-4a7f-a469-9fa09e6c4525"
+            ],
+            "applications": [
+              "299b0ed5-c8cb-4dd1-92db-e123a24fb50b",
+              "34473bf3-1d83-41b1-abab-607e61edbbad"
+            ],
+            "assignToAllFutureApplications": false,
+            "superadminRule": true,
+            "object": "database",
+            "returnCode": null,
+            "attribute": "NAME",
+            "verificationType": "startsWith",
+            "pattern": null,
+            "prefix": "ACD",
+            "suffix": null,
+            "allowedValue": null,
+            "disallowedValue": null,
+            "upperBound": null,
+            "lowerBound": null,
+            "allowedValues": null,
+            "disallowedValues": null,
+            "inclusiveUpper": null,
+            "inclusiveLower": null,
+            "inclusive": null,
+            "maxLength": null,
+            "minLength": null
+          },
+          "involvedAttributeTextChunks": [
+            {
+              "text": "ADB175",
+              "startLine": 193,
+              "endLine": 193,
+              "startChar": 16,
+              "endChar": 22
+            }
+          ],
+          "entireObjectTextChunk": {
+            "text": "CREATE DATABASE ADB175",
+            "startLine": 193,
+            "endLine": 193,
+            "startChar": 0,
+            "endChar": 22
           }
         }
       ],
