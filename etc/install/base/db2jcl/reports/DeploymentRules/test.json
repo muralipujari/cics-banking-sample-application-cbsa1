@@ -1,0 +1,18 @@
+{
+
+"promotionRule": {
+     "promotionEnvTranslationRule": [
+        {
+         "inputMask":"SC*","maskName":"SCHEMA","outputMask":"ZC*"
+        },
+ 	{
+         "inputMask":"AD*","maskName":"DBNAME","outputMask":"ZD*"
+        }
+
+      ]
+    },
+    "proxyUserName": "proxyUser1",
+    "sqlId": "SQL123"
+  }
+
+
